@@ -1,15 +1,20 @@
 <template>
-  <h1>Template</h1>
+  <v-app>
+    <div >
+      <TopBar />
+      <router-view id="app-content" class="app"/>
+    </div>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import TopBar from './components/Shared/TopBar';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    TopBar
   },
 
   data: () => ({
@@ -17,3 +22,14 @@ export default {
   }),
 };
 </script>
+
+<style>
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    /* margin-top: 60px; */
+  }
+</style>
