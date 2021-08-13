@@ -5,12 +5,14 @@ import Vuex from "vuex";
 
 // import createPersistedState from "vuex-persistedstate";
 // import * as templateStore from "./modules/TemplateStore";
+import * as promptStore from "./modules/PropmtStore";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
         // templateStore,
+        promptStore
     },
     // plugins: [createPersistedState({ paths: [" variableToKeepInLocalStorage "]})],
     state: {},

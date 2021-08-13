@@ -26,7 +26,7 @@
             No
           </v-btn>
           <v-btn
-            color="primary"
+            color="success"
             outlined
             @click="confirm"
           >
