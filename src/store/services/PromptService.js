@@ -8,6 +8,9 @@ export default {
         return axios.get(baseUrl + `prompts`);
     },
     async getPromptById(id) {
-        return axios.get(baseUrl + `prompt?promptId=${id}`);
+        return axios.get(baseUrl + `prompts/byid?promptId=${id}`);
+    },
+    async getPromptByNetid(id) {
+        return axios.get(baseUrl + `prompts/bynetid?netid=${id}`);
     }
 };
