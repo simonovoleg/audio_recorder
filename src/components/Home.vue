@@ -1,19 +1,17 @@
 <template>
-<div>
-  <v-btn
-    x-large
-    primary
-    outlined
-    class="my-16"
-    min-width="300"
-    @click="openDialog"
-  >
-    Test Mic
-  </v-btn>
-  <br />
-  <br />
-
-  <v-tooltip top>
+  <div>
+    <v-btn
+      x-large
+      primary
+      outlined
+      class="my-16"
+      min-width="300"
+      @click="openDialog"
+    >
+      Test Mic
+    </v-btn>
+    <br />
+    <v-tooltip top>
       <template v-slot:activator="{ on, attrs }">
         <v-btn 
           x-large
@@ -28,14 +26,13 @@
       </template>
       <span>{{ micOk ? validMessage : invalidMessage }}</span>
     </v-tooltip>
-  
-  <MicTest 
-    :isVisible="dialogVisible"
-    @closeDialog="closeDialog"
-    @confirm="confirm"  
-  />
-</div>
-  
+    
+    <MicTest 
+      :isVisible="dialogVisible"
+      @closeDialog="closeDialog"
+      @confirm="confirm"  
+    />
+  </div>
 </template>
 
 <script>

@@ -1,14 +1,18 @@
 <template>
   <div class="mt-5">
-    <v-card>
-        <v-card-title class="text-h5 grey lighten-2 pl-16" max-width="500">
-          {{this.activePrompt.text}}
-        </v-card-title>
-
-        <v-card-text>
-          
-        </v-card-text>
-    </v-card>
+    <v-banner
+      elevation="5"
+      single-line
+    >
+      <v-icon
+        slot="icon"
+        color="secondary"
+        size="36"
+      >
+        mdi-chat-question-outline
+      </v-icon>
+      {{this.activePrompt.text}}
+    </v-banner>
   </div>
 </template>
 
@@ -19,14 +23,14 @@ export default {
     name: 'Prompt',
     data: () => ({}),
     computed: {
-      ...mapState("promptStore", ["activePrompt"])
+      ...mapState("promptStore", ["activePrompt", "isLoading"])
     },
     methods: {
       ...mapActions("promptStore", ["getAllPrompts", "getPromptById"]),
 
     },
     created() {
-      this.getPromptById(2);
+      this.getPromptById(4);
     }
 }
 </script>
