@@ -5,6 +5,20 @@ export const namespaced = true;
 export const state = {
     isLoading: false,
     allPrompts: [],
+    emptyPrompt: {
+        prompt_id: "",
+        title: "",
+        netid: "",
+        text: "",
+        prepare_time: "",
+        response_time: "",
+        transcription: "",
+        date_created: "",
+        archive: {
+            type: "Buffer",
+            data: []
+        }
+    },
     activePrompt: {
         prompt_id: "",
         title: "",
@@ -39,7 +53,7 @@ export const actions = {
                 return(e);
             })
     },
-    async getPromptById({ commit }, id) {
+    async getPromptById({ commit, state }, id) {
         commit("SET_IS_LOADING", true);
         await PromptService.getPromptById(id)
             .then(res => {
@@ -47,6 +61,10 @@ export const actions = {
                     commit("SET_ACTIVE_PROMPT", res.data[0]);
                     commit("SET_IS_LOADING", false);
                     return "success";
+                } else if (res.status == 204) {
+                    commit("SET_ACTIVE_PROMPT", state.emptyPrompt);
+                    commit("SET_IS_LOADING", false);
+                    return "no data";
                 }
             })
             .catch(e => {
