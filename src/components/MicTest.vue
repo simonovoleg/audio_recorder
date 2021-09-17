@@ -2,6 +2,7 @@
   <v-dialog
     persistent
     v-model="isVisible"
+    max-width="500"
   >
     <v-card>
         <v-card-title class="text-h5 grey lighten-2">
@@ -9,12 +10,9 @@
         </v-card-title>
 
         <v-card-text>
-            Recorder will be here
+            Mic Test will be here
         </v-card-text>
-        <v-card-text>
-            Could you hear the recording?
-        </v-card-text>
-        <v-divider></v-divider>
+        
 
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -38,17 +36,21 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
     name: "MicTest",
     props: ["isVisible"],
     data: () => ({}),
     methods: {
-        closeDialog() {
-            this.$emit("closeDialog");
-        },
-        confirm() {
-            this.$emit("confirm");
-        },
+      ...mapActions("promptStore", ["micCheck"]),
+      closeDialog() {
+          this.$emit("closeMicDialog");
+      },
+      confirm() {
+          this.micCheck(true);
+          this.closeDialog();
+      },
     }
 }
 </script>
