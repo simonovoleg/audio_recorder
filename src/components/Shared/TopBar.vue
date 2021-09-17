@@ -1,14 +1,16 @@
 <template>
   <div>
-    <v-app-bar>
+    <v-app-bar color="secondary">
         <!-- <v-img src="@/assets/logo.png" max-height="50" max-width="300" class="mr-5"></v-img> -->
-        <v-toolbar-title class="title">
-          Audio Recorder
-        </v-toolbar-title>
+        <router-link to="/" class="homeLink">
+          <v-toolbar-title class="title">
+            Audio Recorder
+          </v-toolbar-title>
+        </router-link>
     </v-app-bar>
     <v-progress-linear
       v-show="isLoading"
-      color="secondary"
+      color="success"
       indeterminate
       absolute 
       stream
@@ -30,6 +32,11 @@ export default {
 
 <style>
   .title {
-    font-size: 2rem; 
+    font-size: 200%; 
+    color: white;
+  }
+
+  .homeLink {
+    text-decoration: none;
   }
 </style>

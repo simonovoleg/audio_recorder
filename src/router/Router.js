@@ -13,6 +13,17 @@ const routes = [
         component: Home,
         meta: {}
     },
+    // {
+    //     path: "/:promptId",
+    //     name: "HomeWithId",
+    //     component: Home,
+    //     props: {
+    //         default: 2,
+    //         props: route => ({ query: route.query.promptId })
+
+    //     },
+    //     meta: {}
+    // },
     {
         path: "/Prompt",
         name: "Prompt",
